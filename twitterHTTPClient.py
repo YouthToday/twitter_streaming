@@ -21,10 +21,10 @@ from tweepy import Stream
 import socket
 import re
 
-BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAOffiAEAAAAAdFEYVsBeGvtqmIv%2F%2Bvwo%2FgSJZrY%3DPR24Jh8Q2B6aVyjQhN1yuINhnTA5GwWmVKAGvwLl53EJ7sFWA7'
+BEARER_TOKEN = '{bearer token}' # your twitter API bearer token
 
 # the tags to track
-tags = ['#', 'bigdata', 'spark', 'ai', 'movie']
+tags = ['#', 'bigdata', 'spark', 'ai', 'movie'] # you can change them to whatever you like
     
 class MyStream(tweepy.StreamingClient):
     global client_socket
