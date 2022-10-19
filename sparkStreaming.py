@@ -25,12 +25,12 @@ import re
 from google.cloud import bigquery
 
 # global variables
-bucket = "twitter_streaming_bucket"    # TODO : replace with your own bucket name
+bucket = "{backet-name}"    # TODO : replace with your own bucket name
 output_directory_hashtags = 'gs://{}/hadoop/tmp/bigquery/pyspark_output/hashtagsCount'.format(bucket)
 output_directory_wordcount = 'gs://{}/hadoop/tmp/bigquery/pyspark_output/wordcount'.format(bucket)
 
 # output table and columns name
-output_dataset = 'twitter_data'                     #the name of your dataset in BigQuery
+output_dataset = '{dataset-name}'   #the name of your dataset in BigQuery
 output_table_hashtags = 'hashtags'
 columns_name_hashtags = ['hashtags', 'count']
 output_table_wordcount = 'wordcount'
@@ -40,7 +40,7 @@ columns_name_wordcount = ['word', 'count', 'time']
 IP = 'localhost'    # ip port
 PORT = 9001       # port
 
-STREAMTIME = 600          # time that the streaming process runs 600
+STREAMTIME = 600          # time that the streaming process runs. to do a quick test, you can set it to a smaller one (60 or 20).
 
 WORD = ['data', 'spark', 'ai', 'movie', 'good']     #the words you should filter and do word count
 
@@ -133,7 +133,7 @@ if __name__ == '__main__':
     sql_context = SQLContext(sc)
 
     # create the Streaming Context from the above spark context with batch interval size 5 seconds
-    ssc = StreamingContext(sc, 60)
+    ssc = StreamingContext(sc, 5)
     # setting a checkpoint to allow RDD recovery
     ssc.checkpoint("~/checkpoint_TwitterApp")
 
