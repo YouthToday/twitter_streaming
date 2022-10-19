@@ -1,5 +1,5 @@
 # twitter_streaming
-Before start the whole process, you should already create a project on GCP and a cloud storage bucket.
+Before starting the whole process, you should already create a project on GCP and a cloud storage bucket.
 1. Create a cluster, using the command below.
 ```bash
 gcloud beta dataproc clusters create {cluster-name} \
