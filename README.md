@@ -15,3 +15,10 @@ gcloud beta dataproc clusters create {cluster-name} \
 --initialization-actions=gs://dataproc-initialization-actions/python/pip-install.sh,gs://dataproc-initialization-actions/connectors/connectors.sh \
 --single-node
 ```
+2. Run twitterHTTPClient.ipynb
+3. After Step-2, run sparkStreaming.ipynb. Make sure you open two windows to have both running.
+4. Find the generated stream_data.csv file in your cluster's VM instance. The file is in the directory "/". Use gsutil to upload the file to gs bucket.
+```bash
+gsutil -cp stream_data.csv {your_gs_bucket_path}
+```
+5. Run LDA.ipynb to do the machine learning clustering.
